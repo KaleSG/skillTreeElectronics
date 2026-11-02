@@ -7,6 +7,8 @@ Welcome to Skill-Tree Electronics! This repository is dedicated to the creation 
     * ["Node" Organization Structure"](https://github.com/KaleSG/skilltree-electronics#skill-node-organization-structure)
         * [Determining learning pathway to a skill](https://github.com/KaleSG/skilltree-electronics#determining-a-path-to-a-skill)
         * [Data abstraction of categorical node trees as modified standard trees](https://github.com/KaleSG/skilltree-electronics#data-abstraction-of-categorical-node-trees-as-modified-standard-trees)
+        * [Naming/Numbering Node Scheme](https://github.com/KaleSG/skilltree-electronics#namingnumbering-scheme) (Deprecated)
+        * [Issues](https://github.com/KaleSG/skilltree-electronics#issues)
 
 ## Why does this repository exist?
 This repository exists because of a fundamental flaw in electronics and electrical engineering education and industry practices.
