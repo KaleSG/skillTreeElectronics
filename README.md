@@ -166,3 +166,18 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
     - According to gemini, the best methodology for this would probably be using matrix transforms on svg/css elements. This is done using touch events and translation functionality built into DOM/CSS. 
     * Touch events: touchstart, touchmove, touchend (pretty straightforward)
     * using delta tracking on the positions from each event, we can just translate an inner canvas.
+
+## Desired Site Features (Frontend)
+ These are a list of features/considerations for the website itself that I might want to implement on the front end
+ * Skill-Tree (The main concept)
+    * Skill tree is the collection of learning nodes (Skill, Categorical,Parallel)
+    * Users can hover skills to see a preview of what the skill is/a small conceptual image
+    * Users can press on skill nodes to just/be redirected right to the learning page for that skill
+* User Accounts
+    * Users can either bookmark pages of interest in their browser, or make an account (email optional, but recommended).
+    * Accounts are public so others can see your progress/saves/bookmarks
+        - This should encourage users to keep on going as a form of public acknowledgement that they are making progress. 
+        - Ideally, this becomes a place where engineers can prove their knowledge of their domain and can eventually become a place used by both individuals and companies to verify skill levels or for training their own employees.
+            - This feature could open up room for industry sponsorship that can help the mission keep going. If companies are willing to pay for the resources we make, in addition to open-sourcing those same resources, this could become a non-profit organization that is funded by companies that need us to prepare the new work force by making electrical knowledge more concrete. 
+* Forum - Creating a public forum with volunteer moderation from engineers can help new engineers and experienced engineers alike look for assistance in a centralized place where people are already looking for support in their learning. The goal of this feature is to encourage collaboration and community within the global space. Modeling after something like EEVblog, IRC chats, Reddit, and even slack/discord could open up opportunity for community members to thrive.
+    - Questions about who is moderating whom still need to be answered. I'm expecting this to ramp up fast, so answering this is important
