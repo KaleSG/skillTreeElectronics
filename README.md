@@ -86,8 +86,23 @@ Below is a visual example of the system:
 
 Prior to learning anything in the skill-node-group "03", both 01, and 02 must be completed first in that order. There isn't a restriction that disallows users to skip ahead, but it is recommended that they complete the prior nodes first.
 
-#### Issues with the current system
+
+# Dev-Log Notes
+
+
+#### Issues with the current system - (11/1/26)
 1.  Doesn't differentiate parallel learning requirements without strict order. For example, voltage and current can be learned without a specific order (Codes "03-02-01" and "03-02-02" a.r.e not dependent on each other, nor have a suggested order of reading). This leaves ambiguity with respect to prerequisites vs arbitrary learning order. 
     - this might not actually be that problematic since, even if a user chose to read in number order, they wouldn't be at a loss. Lessons should try and mirror this behavior, though. And avoid referencing voltage and current in the two documents respectively and should be treated as two independent concepts. Leave the effects on current by voltage for the section on power and IV curves, ideally. 
+    - **Possible Solutions**:
+        - Create a separation between 'Categorical Nodes" and "Parallel Nodes". These could possibly be grouped together with a base class of "Grouping Node".
+            - Since parallel nodes are sometimes not actually categorized together, or have anything to with each other, but are both prerequisites to a future node, they fulfill a similar function to categorical nodes, but aren't the exact same thing. 
+            We might be able to classify this distinction as an abstract class. Right now, the main node types would be considered as follows (tentative):
+                * **Skill Node**
+                    - These are nodes that actually have an associated lesson, and aren't just a classification.
+                * **Categorical Node**
+                    - Groups together a sub-skilltree within itself and cannot be marked completed until all nodes within the categorical sub-tree have been completed.
+                * **Parallelized Node**
+                    - A collection of nodes that have equal priority and can be completed in any order. The nodes inside the parallel node may be completely unrelated to each other, but serve a prerequisite for something else. As an abstract concept, this function similar to categorical nodes, as both must have their internal nodes completed, prior to being able to move on to the next topic.
+
 2. Not directly scalable. This naming scheme does not account for changes we might want to make in the future to the actual learning pathway, if we decide a current ordering is insufficient or impractical.
     * This is honestly a huge draw back and is like the **#1** problem with this model. Will need to think of some alternatives.
