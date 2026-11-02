@@ -3,7 +3,9 @@
 Welcome to Skill-Tree Electronics! This repository is dedicated to the creation of a novel learning platform to learn anything about electronics from the very basics, to disciplinary-specifics at a professional level.
 
 ## Dev Notes - Table of Contents
- * Dev notes (11/1/2026)
+ * [Dev notes (11/1/2026)](https://github.com/KaleSG/skilltree-electronics#dev-notes-1112026)
+    * ["Node" Organization Structure"](https://github.com/KaleSG/skilltree-electronics#skill-node-organization-structure)
+        * [Determining learning pathway to a skill](https://github.com/KaleSG/skilltree-electronics#determining-a-path-to-a-skill)
 
 ## Why does this repository exist?
 This repository exists because of a fundamental flaw in electronics and electrical engineering education and industry practices.
@@ -45,6 +47,9 @@ Inherently, this structure is an example of a tree in data abstractions:
 In summary, a tree network is a collection of nodes, where there is a singular "root" node at the top of the tree. Each valid node has exactly 1 valid parent. Our model will be a tree-node model with un-restricted child nodes. I.E each node can have as many child nodes as it needs. 
 
 The primary differentiator between the proposed skill tree structure and a standard skill tree is the modification of nested nodal prerequisites. In other words, to complete a skill-node in order to move on, a sub-skill-tree contained within a categorical node must be completed prior to being able to mark that categorical node as complete.
+
+
+#### Data abstraction of categorical nodes as modified trees
 
 **As a visual example:**
 In the below diagram, each node has at most 1 parent, but contains its own internal skill-tree that must completed for the overall category to be considered completed. 
