@@ -129,15 +129,29 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
         * Content should probably be organized in a structured and standardized way. I.E circuit diagrams should use the same style, symbols, titling/naming conventions etc. It would be nice to use latex for this but I don't know how fleshed out latex symbol gen is. tbh i'd rather use a symbol library and use libre draw or something and just use better gridding.
             - files organization should probably be per-skill. Images + associated files should be in the same folder as the lesson itself.
 3. haven't thought about article structure yet. Not sure if I want lessons to be tabbed/have subchapters that are separately linked, or if I want it to just be 1 long form. Long form would probably be better for mobile, I think i'd rather stick to that and have a drop-down of a table of contents to jump to a section. This would probably be a huge bandwidth saver as well. I think at minimum articles should have the following in the following order:
+
+
+    - Article/Skill Information
+        - Article/Skill Name
+        - Skill Date Added
+        - Skill Date Modified
+        - Skill Article Author Name
+
     - Table of Contents
 
-    - Auto-generated list of skills a reader should already have before attempting to learn the skill. This will leverage the nodal structure of the skilltree and just recursively traceback to the root of the entire learning tree to create a linear learning pathway (LLP) for the user to learn that subject from the beginning.
+   
 
     - Layman overview/description of what   the skill is/what the content is
         - Description can include functional definitions, and or common uses of the technology/of the skill; very dependent on the skill, though.
-        
-    - Lesson Content
+    
+    - Auto-generated list of skills a reader should already have before attempting to learn the skill. This will leverage the nodal structure of the skilltree and just recursively traceback to the root of the entire learning tree to create a linear learning pathway (LLP) for the user to learn that subject from the beginning.
+        - clicking on a link from the autogen list should bring the user to the associated article AND highlight the LLP of the prerequisite clicked upon.
+            - This should probably be a method of a node to actually display the full highlighted path when a lesson is highlighted.
+        New ideas:
+            - Maybe when hovering over a node in the the skilltree view highlights the path + shows a preview of the overview/description. This might require systemizing/abstracting articles/skills further. Not terrible, just need to figure out a decent architecture.
 
+    - Lesson Content
+        
     - References/Citation list
 
     - Checking Understanding Problems (with answer verification)
@@ -145,4 +159,10 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
     - Auto-generated next-skill list to quickly see what this skill unlocks.
 
 
-
+4. How do we handle front-end generation to get the functionality we want? Theres a few options. We want the front end to be draggable so that the node tree is easy to navigate. I think the ideal format for the skill trees is have the view stay hierarchical so that users can simply drag and click on nodes they are interested in learning more about. I don't think having every single node on screen at the same time is really necessary. It'd be cool to for users to "jump in" to a category, though. 
+- Parallel nodes should stay parallel and should not be able to be "jumped into". 
+- At any given time, there will probably be no more than 100 nodes on the screen. I just dont see that ever happening, so an SVG/DOM element system might be the easier to do.
+    **Implementation**
+    - According to gemini, the best methodology for this would probably be using matrix transforms on svg/css elements. This is done using touch events and translation functionality built into DOM/CSS. 
+    * Touch events: touchstart, touchmove, touchend (pretty straightforward)
+    * using delta tracking on the positions from each event, we can just translate an inner canvas.
