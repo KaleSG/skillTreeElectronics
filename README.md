@@ -54,7 +54,7 @@ The primary differentiator between the proposed skill tree structure and a stand
 **As a visual example:**
 In the below diagram, each node has at most 1 parent, but contains its own internal skill-tree that must completed for the overall category to be considered completed. 
 
-![alt text](<readme-assets/diagrams/Data Strucure Tree.png>)
+![](<readme-assets/diagrams/Data Strucure Tree.png>)
 
 Parallel nodes within a categorical node can be thought of as their own categorical grouping of nodes with each parallel node being children of the node
 
@@ -96,7 +96,7 @@ Below is a visual example of the system:
 Prior to learning anything in the skill-node-group "03", both 01, and 02 must be completed first in that order. There isn't a restriction that disallows users to skip ahead, but it is recommended that they complete the prior nodes first.
 
 
-# Dev-Log Notes
+## Issues
 
 
 #### Issues with the current system - (11/1/26)
