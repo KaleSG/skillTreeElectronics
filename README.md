@@ -14,6 +14,7 @@ Welcome to Skill-Tree Electronics! This repository is dedicated to the creation 
       - Need new naming scheme. Current scheme is not scalable and will result in non-static numbering systems. Plan to replace with simple incremental internal/url document ids where each node tracks its md contents via its static/unchanging id instead of using a numbering system.
       - Ideated possible skill/lesson plan structure format.
   - [Desired Site Features](https://github.com/KaleSG/skilltree-electronics)
+  - [Minimum Viable Product (MVP)](https://github.com/KaleSG/skilltree-electronics#mvp)
 
 ## Why does this repository exist?
 
