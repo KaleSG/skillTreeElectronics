@@ -5,7 +5,7 @@
 #include <stdexcept>
 
 namespace SkillTree {
-class ParallelNodes : Node {
+class ParallelNodes : public Node {
   std::set<Node *> *parallelNodes = new std::set<Node *>;
 
   /**
@@ -28,8 +28,7 @@ class ParallelNodes : Node {
   }
 
 public:
-  ParallelNodes(Node *parent = nullptr, std::set<Node *> *children = nullptr)
-      : Node(parent, children) {}
+  ParallelNodes(Node *parent = nullptr) : Node(parent) {}
 
   /**
    * @brief Adds a floating node to a parallel nodes group. Node must be

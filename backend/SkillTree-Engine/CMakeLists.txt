@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.31)
 
 project(SkillTreeEngine)
 
-add_executable(CMAKE_PROJECT_NAME)
+add_executable(SkillTreeEngine)
 
-target_sources(CMAKE_PROJECT_NAME
+target_sources(SkillTreeEngine
  PRIVATE
  src/main.cpp
 )

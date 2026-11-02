@@ -1,1 +1,4 @@
-target_include_directories(CMAKE_PROJECT_NAME PUBLIC nodes)
+target_include_directories(SkillTreeEngine PUBLIC
+nodes
+.)
+

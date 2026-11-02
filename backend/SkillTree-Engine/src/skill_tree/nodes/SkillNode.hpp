@@ -1,10 +1,16 @@
 #pragma once
 #include "Node.hpp"
+#include <string>
 
 namespace SkillTree {
-class SkillNode : Node {
+
+class SkillNode : public Node {
+  std::string name;
+
 public:
-  SkillNode(Node *parent = nullptr, std::set<Node *> *children = nullptr)
-      : Node(parent, children) {}
+  SkillNode(std::string name, Node *parent = nullptr)
+      : Node(parent), name(name) {}
+
+  std::string getName() { return name; }
 };
 } // namespace SkillTree

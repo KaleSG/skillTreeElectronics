@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "CMAKE_PROJECT_NAME"
+			"path" : "SkillTreeEngine"
 		}
 	],
 	"backtrace" : 1,
@@ -61,6 +61,10 @@
 				{
 					"backtrace" : 3,
 					"path" : "/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/nodes"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/."
 				}
 			],
 			"language" : "CXX",
@@ -70,7 +74,7 @@
 			]
 		}
 	],
-	"id" : "CMAKE_PROJECT_NAME::@6890427a1f51a3e7e1df",
+	"id" : "SkillTreeEngine::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -86,8 +90,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "CMAKE_PROJECT_NAME",
-	"nameOnDisk" : "CMAKE_PROJECT_NAME",
+	"name" : "SkillTreeEngine",
+	"nameOnDisk" : "SkillTreeEngine",
 	"paths" : 
 	{
 		"build" : ".",

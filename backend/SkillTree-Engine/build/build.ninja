@@ -41,38 +41,38 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target CMAKE_PROJECT_NAME
+# Object build statements for EXECUTABLE target SkillTreeEngine
 
 
 #############################################
-# Order-only phony target for CMAKE_PROJECT_NAME
+# Order-only phony target for SkillTreeEngine
 
-build cmake_object_order_depends_target_CMAKE_PROJECT_NAME: phony || .
+build cmake_object_order_depends_target_SkillTreeEngine: phony || .
 
-build CMakeFiles/CMAKE_PROJECT_NAME.dir/src/main.cpp.o: CXX_COMPILER__CMAKE_PROJECT_NAME_unscanned_Debug /home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/main.cpp || cmake_object_order_depends_target_CMAKE_PROJECT_NAME
-  DEP_FILE = CMakeFiles/CMAKE_PROJECT_NAME.dir/src/main.cpp.o.d
+build CMakeFiles/SkillTreeEngine.dir/src/main.cpp.o: CXX_COMPILER__SkillTreeEngine_unscanned_Debug /home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/main.cpp || cmake_object_order_depends_target_SkillTreeEngine
+  DEP_FILE = CMakeFiles/SkillTreeEngine.dir/src/main.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/nodes
-  OBJECT_DIR = CMakeFiles/CMAKE_PROJECT_NAME.dir
-  OBJECT_FILE_DIR = CMakeFiles/CMAKE_PROJECT_NAME.dir/src
+  INCLUDES = -I/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/nodes -I/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/.
+  OBJECT_DIR = CMakeFiles/SkillTreeEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles/SkillTreeEngine.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target CMAKE_PROJECT_NAME
+# Link build statements for EXECUTABLE target SkillTreeEngine
 
 
 #############################################
-# Link the executable CMAKE_PROJECT_NAME
+# Link the executable SkillTreeEngine
 
-build CMAKE_PROJECT_NAME: CXX_EXECUTABLE_LINKER__CMAKE_PROJECT_NAME_Debug CMakeFiles/CMAKE_PROJECT_NAME.dir/src/main.cpp.o
-  DEP_FILE = CMakeFiles/CMAKE_PROJECT_NAME.dir/link.d
+build SkillTreeEngine: CXX_EXECUTABLE_LINKER__SkillTreeEngine_Debug CMakeFiles/SkillTreeEngine.dir/src/main.cpp.o
+  DEP_FILE = CMakeFiles/SkillTreeEngine.dir/link.d
   FLAGS = -g
-  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/CMAKE_PROJECT_NAME.dir/link.d
-  OBJECT_DIR = CMakeFiles/CMAKE_PROJECT_NAME.dir
+  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/SkillTreeEngine.dir/link.d
+  OBJECT_DIR = CMakeFiles/SkillTreeEngine.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = CMAKE_PROJECT_NAME
-  TARGET_PDB = CMAKE_PROJECT_NAME.dbg
+  TARGET_FILE = SkillTreeEngine
+  TARGET_PDB = SkillTreeEngine.dbg
 
 
 #############################################
@@ -150,7 +150,7 @@ build src/skill_tree/codegen: phony
 #############################################
 # Folder: /home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build
 
-build all: phony CMAKE_PROJECT_NAME src/skill_tree/all
+build all: phony SkillTreeEngine src/skill_tree/all
 
 # =============================================================================
 

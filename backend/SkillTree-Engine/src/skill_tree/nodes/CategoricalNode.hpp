@@ -4,13 +4,15 @@
 
 namespace SkillTree {
 
-class CategoricalNode : Node {
+class CategoricalNode : public Node {
   Node *rootNode;
 
 public:
   CategoricalNode(Node *rootNode, Node *parent = nullptr,
                   std::set<Node *> *children = nullptr)
-      : Node(parent, children), rootNode(rootNode) {}
+      : Node(parent), rootNode(rootNode) {
+    rootNode->setParent(getParent());
+  }
 
   Node *getRootNode() { return rootNode; }
   ~CategoricalNode() { delete rootNode; }
