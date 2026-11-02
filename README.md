@@ -9,6 +9,8 @@ Welcome to Skill-Tree Electronics! This repository is dedicated to the creation 
         * [Data abstraction of categorical node trees as modified standard trees](https://github.com/KaleSG/skilltree-electronics#data-abstraction-of-categorical-node-trees-as-modified-standard-trees)
         * [Naming/Numbering Node Scheme](https://github.com/KaleSG/skilltree-electronics#namingnumbering-scheme) (Deprecated)
         * [Issues](https://github.com/KaleSG/skilltree-electronics#issues)
+            - tldr; defined tree structure with nodes of different subclasses: Skill Nodes, Categorical nodes, Parallelized Nodes.
+            - Need new naming scheme. Current scheme is not scalable and will result in non-static numbering systems. Plan to replace with simple incremental internal/url document ids where each node tracks its md contents via its static/unchanging id instead of using a numbering system. 
 
 ## Why does this repository exist?
 This repository exists because of a fundamental flaw in electronics and electrical engineering education and industry practices.
@@ -120,3 +122,26 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
 
 2. Not directly scalable. This naming scheme does not account for changes we might want to make in the future to the actual learning pathway, if we decide a current ordering is insufficient or impractical.
     * This is honestly a huge draw back and is like the **#1** problem with this model. Will need to think of some alternatives.
+   ** Solution**:
+   - This is honestly a pretty easily problem to solve. Instead of forcing nodes to have order-locked ID's we can just assign each node its own id and leverage the node-like nature of the skilltree by tracking parent and children nodes (For all nodes) and tracking content files (md, images, etc) for skill nodes using static ids so they can easily be moved around and are only linked via previous and next nodes by their inherent data structure capabilities. Documents/Images/other content-related files could just be stored statically with incrementing ID's so no files can somehow accidentally get deleted or compromised when nodes move around during rearrangement          
+    * **Considerations:**
+        * Content should probably be organized in a structured and standardized way. I.E circuit diagrams should use the same style, symbols, titling/naming conventions etc. It would be nice to use latex for this but I don't know how fleshed out latex symbol gen is. tbh i'd rather use a symbol library and use libre draw or something and just use better gridding.
+            - files organization should probably be per-skill. Images + associated files should be in the same folder as the lesson itself.
+3. haven't thought about article structure yet. Not sure if I want lessons to be tabbed/have subchapters that are separately linked, or if I want it to just be 1 long form. Long form would probably be better for mobile, I think i'd rather stick to that and have a drop-down of a table of contents to jump to a section. This would probably be a huge bandwidth saver as well. I think at minimum articles should have the following in the following order:
+    - Table of Contents
+
+    - Auto-generated list of skills a reader should already have before attempting to learn the skill. This will leverage the nodal structure of the skilltree and just recursively traceback to the root of the entire learning tree to create a linear learning pathway (LLP) for the user to learn that subject from the beginning.
+
+    - Layman overview/description of what   the skill is/what the content is
+        - Description can include common uses of the technology/of the skill,very dependent on the skill, though.
+        
+    - Lesson Content
+
+    - References/Citation list
+
+    - Checking Understanding Problems (with answer verification)
+
+    - Auto-generated next-skill list to quickly see what this skill unlocks.
+
+
+
