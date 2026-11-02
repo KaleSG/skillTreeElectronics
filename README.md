@@ -174,10 +174,46 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
     * Users can hover skills to see a preview of what the skill is/a small conceptual image
     * Users can press on skill nodes to just/be redirected right to the learning page for that skill
 * User Accounts
-    * Users can either bookmark pages of interest in their browser, or make an account (email optional, but recommended).
+    * Users can either bookmark pages of interest in their browser, or make an account (email required)
     * Accounts are public so others can see your progress/saves/bookmarks
         - This should encourage users to keep on going as a form of public acknowledgement that they are making progress. 
         - Ideally, this becomes a place where engineers can prove their knowledge of their domain and can eventually become a place used by both individuals and companies to verify skill levels or for training their own employees.
             - This feature could open up room for industry sponsorship that can help the mission keep going. If companies are willing to pay for the resources we make, in addition to open-sourcing those same resources, this could become a non-profit organization that is funded by companies that need us to prepare the new work force by making electrical knowledge more concrete. 
+* Account Flags
+    * User accounts can have certain account flags that give them permissions to do certain things
+    - Seedling (new users)
+        - Full access to all skill-tree lessons, bookmark capabilities, article download capabilities, forum reading capabilities. Seedlings cannot post on the forum, yet.
+        - Users without accounts cannot download articles, but can read them freely.
+            - Users can always download the full repository of articles on github.
+            - Anti-Spam features
+                - Kicking IPs after concurrent account creations, restrict account creation from both public and private. Limit account creation to 1 account per k minutes per ip.
+                - For DDOS protection, Restrict general account creation to 1 account per k minutes. Its not expected, at least initially, that the site will be insanely popular. Need to consult some cybersecurity experts later about this.
+    - Harvester (At least 10 hours spent on the website)
+        - Harvesters are users who have spent substantial time on the platform. This allows them to begin making forum posts, answer questions on the forum
+    - Gardener (Technical Article Writer/Contributor)
+    - Farmer (Skill-tree manager)
+    - 
 * Forum - Creating a public forum with volunteer moderation from engineers can help new engineers and experienced engineers alike look for assistance in a centralized place where people are already looking for support in their learning. The goal of this feature is to encourage collaboration and community within the global space. Modeling after something like EEVblog, IRC chats, Reddit, and even slack/discord could open up opportunity for community members to thrive.
     - Questions about who is moderating whom still need to be answered. I'm expecting this to ramp up fast, so answering this is important
+
+## MVP
+- Current MVP
+Functionally:
+    - Full skill tree with starting learning nodes and dedicated urls for each learning page (Click to Route)
+    - Standardized format for skill nodes/articles
+        - Autogen for prerequisite/post-requisite materials
+    - Pathway highlighting and generation for learning paths
+    - Path naming: root to node full path on articles 
+**Backend**
+*Data Representation*
+- Categorical node tree representation of subtree
+- Leaf/Node parameters for each skill/categorical/parallel node
+    - Parent Node (Prerequisite)
+    - Children Nodes (Future Skills)
+*Data Serving*
+- Choose data-efficient format for sending pre-compiled tree network to client
+- Create data serving to client on connection
+**Frontend**
+- Draggable display and pop-up lessons with custom links for sharing/bookmarking.
+- Pathway highlighting on hover, description on hover (with placeholder image)
+- Article format for on-click.
