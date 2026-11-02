@@ -9,8 +9,10 @@ class SkillNode : public Node {
 
 public:
   SkillNode(std::string name, Node *parent = nullptr)
-      : Node(parent), name(name) {}
+      : Node(parent), name(name){this->node}
 
-  std::string getName() { return name; }
+        std::string getName() {
+    return name;
+  }
 };
 } // namespace SkillTree
