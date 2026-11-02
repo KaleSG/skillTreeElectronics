@@ -49,7 +49,7 @@ In summary, a tree network is a collection of nodes, where there is a singular "
 The primary differentiator between the proposed skill tree structure and a standard skill tree is the modification of nested nodal prerequisites. In other words, to complete a skill-node in order to move on, a sub-skill-tree contained within a categorical node must be completed prior to being able to mark that categorical node as complete.
 
 
-#### Data abstraction of categorical nodes as modified trees
+#### Data abstraction of categorical node trees as modified standard trees
 
 **As a visual example:**
 In the below diagram, each node has at most 1 parent, but contains its own internal skill-tree that must completed for the overall category to be considered completed. 
@@ -69,7 +69,7 @@ This flow can be seen in the diagram below. Highlighted nodes below represent th
 
 
 ![Series Parallel Pathway](readme-assets/diagrams/series-parallel-pathway.png)
-## Naming/Numbering Scheme`
+## Naming/Numbering Scheme
 
 ### Current Proposed naming scheme
 
