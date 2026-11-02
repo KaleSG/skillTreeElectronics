@@ -11,6 +11,7 @@ Welcome to Skill-Tree Electronics! This repository is dedicated to the creation 
         * [Issues](https://github.com/KaleSG/skilltree-electronics#issues)
             - tldr; defined tree structure with nodes of different subclasses: Skill Nodes, Categorical nodes, Parallelized Nodes.
             - Need new naming scheme. Current scheme is not scalable and will result in non-static numbering systems. Plan to replace with simple incremental internal/url document ids where each node tracks its md contents via its static/unchanging id instead of using a numbering system. 
+            - Ideated possible skill/lesson plan structure format.
 
 ## Why does this repository exist?
 This repository exists because of a fundamental flaw in electronics and electrical engineering education and industry practices.
@@ -133,7 +134,7 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
     - Auto-generated list of skills a reader should already have before attempting to learn the skill. This will leverage the nodal structure of the skilltree and just recursively traceback to the root of the entire learning tree to create a linear learning pathway (LLP) for the user to learn that subject from the beginning.
 
     - Layman overview/description of what   the skill is/what the content is
-        - Description can include common uses of the technology/of the skill,very dependent on the skill, though.
+        - Description can include functional definitions, and or common uses of the technology/of the skill; very dependent on the skill, though.
         
     - Lesson Content
 
