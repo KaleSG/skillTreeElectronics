@@ -1,0 +1,5 @@
+/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/CMakeFiles/CMAKE_PROJECT_NAME.dir
+/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/CMakeFiles/edit_cache.dir
+/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/CMakeFiles/rebuild_cache.dir
+/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/src/skill_tree/CMakeFiles/edit_cache.dir
+/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build/src/skill_tree/CMakeFiles/rebuild_cache.dir
