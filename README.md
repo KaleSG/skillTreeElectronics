@@ -2,6 +2,9 @@
 
 Welcome to Skill-Tree Electronics! This repository is dedicated to the creation of a novel learning platform to learn anything about electronics from the very basics, to disciplinary-specifics at a professional level.
 
+## Dev Notes - Table of Contents
+ * Dev notes (11/1/2026)
+
 ## Why does this repository exist?
 This repository exists because of a fundamental flaw in electronics and electrical engineering education and industry practices.
 
@@ -23,11 +26,12 @@ The content of the actual lessons of this project will come from online resource
 The origin of these resources will be cited per lesson, so that learners can take advantage of the resources provided to us on their own, if they so choose. We will occasionally adapt textbooks and non-free material, but we will provide their ISBN's and will do our best to teach lessons from them in our own words.
 
 
-# Dev Notes 
+# Dev Notes (11/1/2026)
 These are just notes I am using to keep track of development, design decisions, and possible problems.
 
+
 ## "Skill Node" Organization Structure
-![alt text](<readme-assets/diagrams/Starting Concept.drawio.svg>)
+![](<readme-assets/diagrams/Starting Concept.drawio.svg>)
 This is the foundation of the skill-tree node model for learning electrical engineering. Pulled form RPG-style games and skill dashboards, the inherent structure is defined by skills requiring some number of prerequisite skills before learning a milestone/skill. 
 
 Nodes in series inherently require its previously chained skill nodes to be completely before moving on with the new skill itself. Nodes in parallel are able to be done in any order and are not dependent on each other for completion. However, these nodes in parallel must both be completed, prior to moving on to the next series node/category node.
@@ -49,7 +53,7 @@ In the below diagram, each node has at most 1 parent, but contains its own inter
 
 Parallel nodes within a categorical node can be thought of as their own categorical grouping of nodes with each parallel node being children of the node
 
-![Hierarchical Coding](readme-assets/diagrams/name-scheme.png).
+![Hierarchical Coding](readme-assets/diagrams/name-scheme.png)
 
 As a practical explanation of its use, lets say I want to learn parallel circuits. To get there, I have to first complete the prerequisite parallel nodes that make up kirchhoff's voltage and current laws. Those nodes still have their own prerequisites beyond them. The full path it would take to actually learn about parallel circuits is as follows:
 
@@ -102,7 +106,9 @@ Prior to learning anything in the skill-node-group "03", both 01, and 02 must be
                 * **Categorical Node**
                     - Groups together a sub-skilltree within itself and cannot be marked completed until all nodes within the categorical sub-tree have been completed.
                 * **Parallelized Node**
-                    - A collection of nodes that have equal priority and can be completed in any order. The nodes inside the parallel node may be completely unrelated to each other, but serve a prerequisite for something else. As an abstract concept, this function similar to categorical nodes, as both must have their internal nodes completed, prior to being able to move on to the next topic.
+                    - A collection of nodes that have equal priority and can be completed in any order. The nodes inside the parallel node may be completely unrelated to each other, but serve a prerequisite for something else. As an abstract concept, this function similar to categorical nodes, as both must have their internal nodes completed, prior to being able to move on to the next topic. 
+                    - Essentially treated as a singular node as seen by other nodes with 1 single parent node and any number of child nodes.
+                    - Will contain an unordered collection of sub-nodes. A Parallelized Node should not have any sort of tree structure within it. This is the main distinction from a categorical node. Parallel nodes can have categorical nodes within them, but cannot have any form of tree structure within them.
 
 2. Not directly scalable. This naming scheme does not account for changes we might want to make in the future to the actual learning pathway, if we decide a current ordering is insufficient or impractical.
     * This is honestly a huge draw back and is like the **#1** problem with this model. Will need to think of some alternatives.
