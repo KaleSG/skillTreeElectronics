@@ -320,3 +320,11 @@ Categorical nodes can contain any number of sub-trees, where multiple roots are 
 > **Note:** I just realized having parallel and categorical nodes be two different data types is a bit redundant, since categorical nodes are already capable of the exact functionality of parallel nodes, just with more flexibility. It makes more sense to just do standard skill nodes and categorical nodes, now that I think about it.
 >
 > Just imagine the parallel nodes collection never existed, lol.
+
+# Dev Notes (11/3/2026)
+
+Growth Plan ideas
+
+- Getting funding from companies with patents
+  - Agree to take funding for privatized projects under the condition that any
+    non-patent work is publicly released while patented knowledge/circuits are kept internal until the patent expires and or permission is given to publicly release. Payment structure should include public contributions to other projects in order to receive service.
