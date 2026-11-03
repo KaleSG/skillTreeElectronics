@@ -202,3 +202,121 @@ These are a list of features/considerations for the website itself that I might 
 - Draggable display and pop-up lessons with custom links for sharing/bookmarking.
 - Pathway highlighting on hover, description on hover (with placeholder image)
 - Article format for on-click.
+
+# Dev Notes (11/2/2026)
+
+## Goals and Aspirations
+
+Hopes/aspirations for the actual content of the website, ranked by priority:
+
+### 1. Teach the fundamentals of electrical engineering from very first principles
+
+- Current EE education lacks theoretical understanding of voltage and current. I plan to derive where current and voltage actually come from using F = ma from standard mechanics and basic electrostatics as a starting point. It might not be very practical for actual engineering, but my goal is depth of understanding. If I can get engineers to appreciate how voltage and current actually become work, energy, moment, etc. from the very start, I will be very happy.
+  - This endeavor requires users to have a pretty solid background in mathematics. I think building math lessons and teaching those foundations as a part of this system would also be very beneficial. I love math, so this isn't something I wanna shy away from. Abstraction is practical, but fundamentals are essential.
+- Voltage, current, and power should be defined outside of the perspective of impedance/resistance and should be taught as standalone concepts. I believe too much reliance on using Ohm's law to introduce current and voltage has caused a lot of EE students and hobbyists to run into the misconception that Ohm's law is somehow a universal truth, until told otherwise. Components, both ohmic and non-ohmic, should be taught from the perspective of I-V curve characterizations and load lines from the very beginning. I would teach this using abstract device blocks, rather than give any sort of name to a device, before they learn about devices.
+
+### 2. Teach circuit fundamentals
+
+- Teaching the essentials of electrical components from the perspective given by first principles, i.e., covering passive/active components, applications, analysis based on first principles, load lines, I-V curves, and defining characteristic equations (Ohm's law, diode equations, MOSFETs, etc.).
+
+### 3. Teach practical electronics and system analysis
+
+- I want to teach users to be able to break down systems from the highest level to the lowest level, and how to understand systems they've never encountered before.
+  - This would mostly involve skills like understanding the difference between functional diagrams vs. circuit diagrams (especially in datasheets).
+  - How to research systems using online resources (technical documentation, datasheets, manufacturer websites, forums, using AI).
+
+### 4. Teach users to design systems themselves
+
+- Learn how to go from:
+
+  idea → system requirements → system functional diagram → choosing an implementation method (choosing ICs/components/etc.) → learning technical specifics of their implementation → execution.
+
+### 5. Become a centralized location for EE learning and resources for any concentration
+
+- After essentials learning, I hope to expand the skill tree to disciplines throughout electrical engineering: power electronics, signal processing, embedded systems, general analog systems, etc. I hope to consult experienced engineers in the community for their recommended resources, which I plan to adapt and rewrite into my standard format to get rid of any sort of copyright restrictions and publish free resources for learning that discipline.
+
+> **Note:** Technical articles will all have sample problems and verification to ensure satisfactory learning.
+
+## Planned Site Features
+
+### User Accounts
+
+Users can track their learning and share public profiles with others so that people can see how much they've read, statistics on time spent on the platform, etc. This could possibly be used to form some sort of leaderboard system and/or public recognition for their learning, so users are incentivized to learn via public perception.
+
+### Forums
+
+A dedicated forum associated with the website that learners and engineers alike can use as a primary location for learning content, sharing projects, asking questions, etc. Encourages community growth and learning.
+
+## Interface Vision
+
+Visually, this should look like a large, draggable viewport frame with a ton of lessons in the tree structure, such that when a specific skill node/lesson is hovered upon, it shows a highlighted path from the root of the entire skill tree, so any learner can see a pathway to what they want to learn.
+
+This is pretty much all I have thought through right now. The actual lesson writing process shouldn't be too difficult, since I plan on doing much of this myself for the first version. The technical details and handling of the backend, frontend, and data handling will probably be the more difficult part, but that is also something I enjoy doing and plan to do myself. I am not expecting a rapidly fast timeline; this is as much a passion project of me learning to design a scalable system as it is my endeavor to teach others about EE.
+
+---
+
+## Plan to Scale
+
+My future hope is to turn this into either a non-profit organization of both paid employees and volunteer engineers. I plan to baseline the fundamental model of learning and set the foundations for how learning engineering can be formalized and standardized, so that learning is as seamless as possible, without having to struggle through the undocumented and uncentralized mess the current EE atmosphere presents. I have a vision for how these lessons are supposed to be taught and structured, and proper ways to learn engineering that I believe is unique compared to what already exists and provides value to students and engineers alike.
+
+**Short term:** I don't expect to seek any sort of funding for this project, because I enjoy the challenge of setting this all up from scratch and doing development myself.
+
+**Long term:** After the early stage, I intend on looking to companies in the electrical engineering industry for sponsorship, grants, and partnerships to grow the platform. In my mind, the ability to have a structured pathway to learn any topic is extremely valuable for any company. I see companies in the future being very willing to pay hefty sums for training resources to teach junior engineers certain discipline-specific skills, especially with the skill gap at this time.
+
+The primary condition of this funding, in order to stick with a free and open source vision, is that companies would pay the organization to create the resources under the condition that they could be released for free, at no cost or royalty to any person. This would be a net positive benefit for the company, the organization, and learners across the world.
+
+I hope to avoid any sort of advertising, except possibly EE instrumentation brands, on the platform in order to prioritize learners. I believe that having a couple of paid, full-time managers and contributors is essential for running the platform smoothly. Something of this scale would need dedicated people as contact points for companies, users, business professionals, etc.
+
+---
+
+## Technical Details
+
+### Figure 1: Overall SkillTree Schematic Concept Diagram
+
+![Figure 1. Overall SkillTree schematic concept diagram](readme-assets/diagrams/fig1-initcon.png)
+
+Figure 1 shows the following concepts:
+
+**Skill Nodes**
+
+- Skill nodes represent actual lessons/articles users will read to learn a certain skill. On the website, users click on the skill to open up the associated lesson/article.
+
+**Nodes in Series / Parallel**
+
+- **Series nodes** represent prerequisites of learning a specific skill.
+  - Ex. "What are Electronics" must be completed before "What is Electricity"
+  - Ex. "What is Electricity" must be completed before "What is Electricity: Electrons & Charge"
+- **Parallel nodes** represent skills that have the same prerequisite skills and are all required prior to attempting the next skill in series with the parallel nodes.
+  - Ex. "Voltage" and "Current" share the same prerequisites, so one does not necessarily require a user to learn one before the other. However, both must be completed prior to attempting to learn the "Power" skill node.
+
+**Categorical Nodes**
+
+- Categorical nodes are collections of inter-related skills that all must be completed prior to moving on to the next node. The next node could be a parallel node collection, a sole skill node, or another categorical node. From a top-level view, outside the node, it can just be treated like a normal node.
+
+This topology basically allows us to create any combination of pre-requisite, post-requisite, or co-requisite learning structures. These probably could be more formally defined, but pretty much any learning order should be able to be reproducible. I still need to figure out how to represent this fully programmatically, though. It shouldn't be too complicated in my mind, though.
+
+### Figure 2: Abstracted Representation of Node Types
+
+_Skill nodes, parallel collection nodes, and categorical nodes._
+
+![alt text](readme-assets/diagrams/fig2-node-types.png.png)
+
+Figure 2 represents the actual abstract form of what a skill node tree will be made of. This will influence the underlying structure of the nodal backend in C++. Practically any learning style/path should be able to be represented using this as a foundational structure.
+
+#### Parallel collection nodes vs. child lists
+
+One distinction that should be kept in mind is the difference between a parallel collection node and a list of children associated with a node.
+
+- **Parallel nodes** are a collection of floating nodes within a containing "Parallel Collection Node," which has its own parent and children. In order to proceed after the parallel node, all contained nodes must be completed. Abstractly, contained nodes can be thought of as their own nodes, but the prerequisite to even "enter" the collection is completing the prerequisite of the "parallel collection node," their container. The children nodes of the parallel node are not children of each skill node individually, but children of the collection as a whole. Thus, all of the parallel nodes must be completed prior to proceeding to any of the parallel node's children.
+- **Children nodes** are simply defined as possible paths a given node can take once it has been completed.
+
+#### Categorical node rules
+
+Categorical nodes can contain any number of sub-trees, where multiple roots are possible. The restrictions on categorical nodes are defined as follows:
+
+- To proceed to any children of the categorical node, all contained sub-trees must be entirely completed.
+- These allow for better organization and categorization of EE topics and learning. They also allow for collections of concepts to be grouped and separated without keeping to a strict tree or linear structure, allowing for much more flexibility, but still making it very clear what skills require prerequisite learning.
+
+> **Note:** I just realized having parallel and categorical nodes be two different data types is a bit redundant, since categorical nodes are already capable of the exact functionality of parallel nodes, just with more flexibility. It makes more sense to just do standard skill nodes and categorical nodes, now that I think about it.
+>
+> Just imagine the parallel nodes collection never existed, lol.
