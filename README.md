@@ -2,6 +2,8 @@
 
 Welcome to Skill-Tree Electronics! This repository is dedicated to the creation of a novel learning platform to learn anything about electronics from the very basics, to disciplinary-specifics at a professional level.
 
+> Note: Updated dev notes have been moved to the [dev-notes/](dev-notes/) folder for organization purposes
+
 ## Dev Notes - Table of Contents
 
 - [Dev notes (11/1/2026)](https://github.com/KaleSG/skilltree-electronics#dev-notes-1112026)
@@ -328,3 +330,10 @@ Growth Plan ideas
 - Getting funding from companies with patents
   - Agree to take funding for privatized projects under the condition that any
     non-patent work is publicly released while patented knowledge/circuits are kept internal until the patent expires and or permission is given to publicly release. Payment structure should include public contributions to other projects in order to receive service.
+
+**SALEM NOTES**
+
+- Instead of focusing on theory academic separations, separate by appliation (medical, automotive, industral)
+
+* this is more relevant to company use and real-world practical electronics
+* Look through company websites

@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/build",
-  "command": "/usr/bin/clang++ -I/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/nodes -I/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/skill_tree/. -g -o CMakeFiles/SkillTreeEngine.dir/src/main.cpp.o -c /home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/main.cpp",
-  "file": "/home/kale/Projects/personal/skilltree-electronics/backend/SkillTree-Engine/src/main.cpp",
-  "output": "CMakeFiles/SkillTreeEngine.dir/src/main.cpp.o"
-}
-]
