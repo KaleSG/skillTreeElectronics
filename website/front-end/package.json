@@ -1,0 +1,24 @@
+{
+  "name": "front-end",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "astro": "^7.4.7",
+    "tailwindcss": "^4.3.4"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "prettier-plugin-tailwindcss": "0.8.1"
+  }
+}

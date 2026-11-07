@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  
+  /* Neutrals */
+  --color-background: #0B0D0C;
+  --color-surface: #121614;
+ 
+  /* Text */
+  --color-foreground: #E6EAE7;
+  --color-accent-foreground: #8deba5;
+
+  /* Hover Colors */
+  --color-background-accent-hover: #324d3a;
+  --color-background-accent-active: #538060;
+
+  /* Accent */
+  --color-accent: #66cc7a;
+  --color-accent-dim: #23332b;
+
+
+  /* Needed since --color-*: initial removed these */
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Branding Colors */
+  --color-leaf-chip: var(--color-foreground);
+  --color-leaf-engraving: var(--color-surface);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
