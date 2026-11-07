@@ -4,7 +4,7 @@
   
   /* Neutrals */
   --color-background: #0B0D0C;
-  --color-surface: #121614;
+  --color-surface: #111413;
  
   /* Text */
   --color-foreground: #E6EAE7;
@@ -15,8 +15,8 @@
   --color-background-accent-active: #538060;
 
   /* Accent */
-  --color-accent: #66cc7a;
-  --color-accent-dim: #23332b;
+  --color-accent: #4d995c;
+  --color-accent-dim: #142818;
 
 
   /* Needed since --color-*: initial removed these */
@@ -24,8 +24,8 @@
   --color-current: currentColor;
 
   /* Branding Colors */
-  --color-leaf-chip: var(--color-foreground);
-  --color-leaf-engraving: var(--color-surface);
+  --color-leaf-chip:#171c1a;
+  --color-leaf-engraving: #66cc7a;
 }
 
 @layer base {
