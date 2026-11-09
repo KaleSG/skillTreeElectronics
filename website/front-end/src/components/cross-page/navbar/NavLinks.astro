@@ -33,7 +33,6 @@ const { ...rest } = Astro.props
     flex-direction: column;
     transition: var(--navbar-link-time) ease;
   }
-  
 
   #drop-down-links > .link {
     display: flex;
@@ -46,7 +45,10 @@ const { ...rest } = Astro.props
 
     padding: var(--navbar-padding);
 
-    transition: background-color var(--navbar-link-time) ease, color var(--navbar-link-time) ease, fill var(--navbar-link-time) ease;
+    transition:
+      background-color var(--navbar-link-time) ease,
+      color var(--navbar-link-time) ease,
+      fill var(--navbar-link-time) ease;
   }
 
   #drop-down-links > .link:hover {
@@ -56,12 +58,14 @@ const { ...rest } = Astro.props
     cursor: pointer;
   }
 
-   #drop-down-links > .link:active {
+  #drop-down-links > .link:active {
     fill: var(--navbar-button-active-fill);
     color: var(--navbar-button-active-fill);
-    
-    transition: background-color var(--navbar-button-click-transition-time) ease, color var(--navbar-button-click-transition-time) ease, fill var(--navbar-button-click-transition-time) ease;
-    
+
+    transition:
+      background-color var(--navbar-button-click-transition-time) ease,
+      color var(--navbar-button-click-transition-time) ease,
+      fill var(--navbar-button-click-transition-time) ease;
   }
 
   #drop-down-links > .link > .link-icon {
