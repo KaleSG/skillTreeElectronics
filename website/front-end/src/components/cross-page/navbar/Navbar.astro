@@ -24,10 +24,12 @@ const { ...rest } = Astro.props
   #navbar {
     /* Position & Dimensions */
     flex-direction: column;
+    position: absolute;
 
     height: fit-content;
     width: 100vw;
 
+    z-index: 10000;
     /* Font Style */
     font-family: var(--default-font-family);
     font-size: var(--navbar-default-font-size);
@@ -40,8 +42,13 @@ const { ...rest } = Astro.props
     /* Container Style */
     background-color: var(--navbar-background);
     box-shadow: 0px 1px 3px 1px color-mix(in srgb, var(--color-accent-green) var(--navbar-glow-intensity), transparent);
+
+    transition: box-shadow var(--navbar-link-time) ease;
   }
 
+   #navbar.active {
+    box-shadow: 0px 1px 3px 1px var(--color-accent-green);
+   }
   /* Sets uniform hei */
   #navbar > * {
     width: 100%;
@@ -74,16 +81,19 @@ const { ...rest } = Astro.props
   function toggleLinks() {
     dropDownLinks?.classList.toggle('hidden')
     navlinkToggleButton?.classList.toggle('active')
+    navbar?.classList.toggle('active');
   }
 
   function linksVisible() {
     dropDownLinks?.classList.remove('hidden')
     navlinkToggleButton?.classList.add('active')
+    navbar?.classList.add('active')
   }
 
   function linksHidden() {
     dropDownLinks?.classList.add('hidden')
     navlinkToggleButton?.classList.remove('active')
+    navbar?.classList.remove('active')
   }
 
   // Links hidden by default.

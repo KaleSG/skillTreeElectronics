@@ -1,0 +1,50 @@
+---
+import '../../styles/global.css'
+import Page from './Page.astro';
+import '../../styles/markdown-styling/singleMarkDown.css'
+---
+
+<Page id="content-container">
+  <!-- Wrap in a styled container -->
+  <article id="main-conent-column">
+     <span id="copyright-notice">© 2026 skillTreeElectronics. All rights reserved.</span>
+    <slot></slot>
+  </article>
+</Page>
+<style>
+
+  #copyright-notice {
+    color: var(--color-foreground-5);
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
+  #content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #content-container>#main-conent-column {
+    display: block;
+    background-color: var(--color-dark-2);
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    overflow: scroll;
+  }
+
+  
+
+  @media screen and (min-width: 1024px) {
+    #content-container>#main-conent-column {
+    padding: 2rem;
+    padding-top: 1.5rem;
+    width: 60%;
+    margin: 1rem;
+    }
+  }
+
+</style>

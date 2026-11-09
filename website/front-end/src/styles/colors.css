@@ -11,9 +11,11 @@
 
   /* For Text Colors */
   --color-foreground-0: #f9fbf9;
-  --color-foreground-1: #dae7da;
-  --color-foreground-2: #c1cdc1;
-  --color-foreground-3: #a9b1a9;
+  --color-foreground-1: #dee0de;
+  --color-foreground-2: #c7c9c7;
+  --color-foreground-3: #b5b3b4;
+  --color-foreground-4: #a3a2a2;
+  --color-foreground-5: #919090;
 
   /* Indicator Colors */
   --color-indicator-green: #9cffb1;

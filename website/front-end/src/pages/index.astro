@@ -1,25 +1,9 @@
 ---
 import '../styles/global.css'
-import UniversalMetadata from '../components/cross-page/UniversalMetadata.astro'
-import Navbar from '../components/cross-page/navbar/Navbar.astro'
+import SinglePageMarkdown from '../components/template/SinglePageMarkdown.astro';
+import TermsOfService from '../mdx-pages/TermsOfService.mdx';
 ---
 
-<html lang="en">
-  <head>
-    <UniversalMetadata />
-
-    <!-- Basic Page Information -->
-    <meta charset="utf-8" />
-    <title>Skill Tree | skillTree Electronics</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Pinch-Zoom Prevention on Main SkillTree page -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  </head>
-
-  <body>
-    
-    <Navbar />
-
-  </body>
-</html>
+<SinglePageMarkdown>
+<TermsOfService></TermsOfService>
+</SinglePageMarkdown>
