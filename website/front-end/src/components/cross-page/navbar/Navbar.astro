@@ -1,0 +1,98 @@
+---
+import SiteNameCard from './SiteNameCard.astro'
+import Hamburger from './Hamburger.astro'
+import NavLinks from './NavLinks.astro'
+import '../../../styles/Navbar.css' /* Colors, styling, animation timing can all be found here. */
+const { ...rest } = Astro.props
+---
+
+<nav id="navbar" {...rest}>
+  <div id="navbar-top">
+    <SiteNameCard id="site-name-card" />
+    <div id="right-nav">
+      <Hamburger id="Hamburger" />
+    </div>
+  </div>
+  <NavLinks id="drop-down-links" />
+</nav>
+
+<style>
+  * {
+    display: flex;
+  }
+
+  #navbar {
+    /* Position & Dimensions */
+    flex-direction: column;
+
+    height: fit-content;
+    width: 100vw;
+
+    /* Font Style */
+    font-family: var(--default-font-family);
+    font-size: var(--navbar-default-font-size);
+    color: var(--navbar-foreground);
+    font-size: var(--navbar-default-font-size);
+
+    /* Icon Styling*/
+    fill: var(--navbar-foreground);
+
+    /* Container Style */
+    background-color: var(--navbar-background);
+    box-shadow: 0px 1px 3px 1px color-mix(in srgb, var(--color-accent-green) var(--navbar-glow-intensity), transparent);
+  }
+
+  /* Sets uniform hei */
+  #navbar > * {
+    width: 100%;
+  }
+
+  #navbar > #navbar-top {
+    height: var(--navbar-base-height);
+    padding: var(--navbar-padding);
+  }
+
+  #navbar > #navbar-top > #right-nav {
+    flex-grow: 1;
+    flex-direction: row-reverse;
+  }
+
+  #drop-down-links.hidden {
+    max-height: 0;
+  }
+
+  #Hamburger.active {
+    fill: var(--navbar-button-hover-fill);
+  }
+</style>
+<script>
+  // Handles nav-link show events
+  const navlinkToggleButton = document.getElementById('Hamburger')
+  const dropDownLinks = document.getElementById('drop-down-links')
+  const navbar = document.getElementById('navbar')
+
+  function toggleLinks() {
+    dropDownLinks?.classList.toggle('hidden')
+    navlinkToggleButton?.classList.toggle('active')
+  }
+
+  function linksVisible() {
+    dropDownLinks?.classList.remove('hidden')
+    navlinkToggleButton?.classList.add('active')
+  }
+
+  function linksHidden() {
+    dropDownLinks?.classList.add('hidden')
+    navlinkToggleButton?.classList.remove('active')
+  }
+
+  // Links hidden by default.
+  linksHidden()
+
+  navlinkToggleButton?.addEventListener('click', toggleLinks)
+
+  //Show links on top bar hover
+  navbar?.addEventListener('mouseenter', linksVisible)
+
+  navbar?.addEventListener('mouseleave', linksHidden)
+</script>

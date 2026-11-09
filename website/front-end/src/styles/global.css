@@ -1,10 +1,10 @@
-@import "tailwindcss";
-@import "./colors.css";
+@import 'tailwindcss';
+@import './colors.css';
 
 body {
-    margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden; /* Prevents unwanted scrollbars */
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: var(--color-foreground-0);
+  background-color: var(--color-global-background);
 }

@@ -1,0 +1,49 @@
+---
+import '../../../styles/Navbar.css'
+const { ...rest } = Astro.props
+---
+
+<svg {...rest} width="438.41714mm" height="368.77231mm" viewBox="0 0 438.41714 368.77231" version="1.1" id="Hamburger">
+  <defs id="defs1" />
+  <g id="layer1" transform="translate(-36.791554,-71.084551)">
+    <g id="g2" transform="matrix(0.84918319,0,0,1.2317494,38.609103,-55.767638)">
+      <g id="g3" transform="matrix(0.9758755,0,0,0.9758755,6.175886,5.6819443)">
+        <path
+          id="rect2-3-1-3"
+          style="stroke-width:0;stroke-opacity:0.9848"
+          d="m -8.5218223,120.87554 v 19.15471 L 12.644844,161.19692 H 499.35545 l 21.16667,-21.16667 v -19.15471 l -21.16667,-21.166671 -486.710606,0 z m 0,122.61584 v 19.15471 L 12.644844,283.81276 H 499.35545 l 21.16667,-21.16667 0,-19.15471 -21.16667,-21.16667 -486.710606,0 z m 0,122.68635 v 19.15471 l 21.1666663,21.16667 486.710606,0 21.16667,-21.16667 0,-19.15471 -21.16667,-21.16667 H 12.644844 Z"
+        />
+      </g>
+    </g>
+  </g>
+</svg>
+<style>
+ #Hamburger {
+    height: 100%;
+    width: fit-content;
+    padding: 0.1rem;
+
+    fill: var(--navbar-foreground);
+
+    --transition-time: var(--navbar-button-hover-transition-time);
+
+    transition:
+      fill var(--transition-time) ease,
+      transform var(--transition-time) ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+     #Hamburger:hover {
+      fill: var(--navbar-button-hover-fill);
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+
+   #Hamburger:active {
+    transform: scale(0.8);
+    fill: var(--navbar-button-active-fill);
+    transition: transform var(--navbar-button-click-transition-time) ease;
+  }
+
+</style>

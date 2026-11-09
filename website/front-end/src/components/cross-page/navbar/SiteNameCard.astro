@@ -1,0 +1,45 @@
+---
+import Logo from './icons/Logo.astro'
+import '../../../styles/Navbar.css' /* Colors, styling, animation timing can all be found here. */
+const { ...rest } = Astro.props
+---
+
+<div {...rest} id="site-name-card">
+  <Logo id="leaf-chip" />
+  <span id="navbar-title">skillTreeElectronics</span>
+</div>
+
+<style>
+  * {
+    height: 100%;
+    display: flex;
+  }
+
+  #site-name-card > * {
+    align-items: center;
+    width: fit-content;
+  }
+  #site-name-card > #leaf-chip {
+    justify-content: right;
+
+    margin-right: 0.35rem;
+  }
+
+  #site-name-card > #navbar-title {
+    font-size: 100%;
+    font-weight: bold;
+  }
+
+  #site-name-card {
+    
+    transition:
+      fill var(--navbar-button-hover-transition-time) ease,
+      color var(--navbar-button-hover-transition-time) ease;
+  }
+
+  #site-name-card:hover {
+    color: var(--navbar-button-hover-fill);
+    fill: var(--navbar-button-hover-fill);
+    cursor: default;
+  }
+</style>

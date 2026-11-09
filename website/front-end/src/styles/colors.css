@@ -1,36 +1,38 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  
-  /* Neutrals */
-  --color-background: #0B0D0C;
-  --color-surface: #111413;
- 
-  /* Text */
-  --color-foreground: #E6EAE7;
-  --color-accent-foreground: #8deba5;
+  /* For Background Colors*/
+  --color-dark-0: #020302;
+  --color-dark-1: #050805;
+  --color-dark-2: #080d08;
+  --color-dark-3: #0b120b;
+  --color-dark-4: #0e170e;
+  --color-dark-5: #111c11;
 
-  /* Hover Colors */
-  --color-background-accent-hover: #324d3a;
-  --color-background-accent-active: #538060;
+  /* For Text Colors */
+  --color-foreground-0: #f9fbf9;
+  --color-foreground-1: #dae7da;
+  --color-foreground-2: #c1cdc1;
+  --color-foreground-3: #a9b1a9;
 
-  /* Accent */
-  --color-accent: #4d995c;
-  --color-accent-dim: #142818;
+  /* Indicator Colors */
+  --color-indicator-green: #9cffb1;
+  --color-indicator-blue: #9cf8ff;
+  --color-indicator-red: #ff9c9c;
+  --color-indicator-yellow: #f7ff9c;
+  --color-indicator-orange: #ffe69c;
+  --color-indicator-purple: #9c9eff;
+  --color-indicator-pink: #cc9cff;
 
+  /* Primary Accent Colors*/
+  --color-accent-green: var(--color-indicator-green);
 
-  /* Needed since --color-*: initial removed these */
-  --color-transparent: transparent;
-  --color-current: currentColor;
+  /* Glow Intensities */
+  --glow-default-intensity: 55%;
 
-  /* Branding Colors */
-  --color-leaf-chip:#171c1a;
-  --color-leaf-engraving: #66cc7a;
 }
 
-@layer base {
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  }
+:root {
+  /* Component Colors */
+  --color-global-background: var(--color-dark-0);
 }
