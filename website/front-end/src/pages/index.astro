@@ -1,8 +1,273 @@
 ---
 import '../styles/global.css'
-import Page from '../components/template/Page.astro';
+import Page from '../components/template/Page.astro'
+import NodeTree from '../components/cross-page/navbar/icons/NodeTree.astro'
 ---
 
-<Page>
-    
+<Page PageTitle="Skill Tree" id="content-container">
+  <div id="skill-tree-viewport">
+    <div id="page-title-card">
+      <NodeTree id="node-tree-icon" />
+      <span>Skill Tree</span>
+    </div>
+    <div id="skill-tree-canvas">
+      <div style="height:20px; width: 20px; background-color: red;"></div>
+    </div>
+  </div>
 </Page>
+<style>
+  #skill-tree-viewport {
+    position: relative;
+    background-color: var(--color-dark-2);
+    height: 95%;
+    border-radius: 20px;
+    border: 2px solid color-mix(in srgb, var(--color-foreground-0) 40%, transparent);
+    width: 98%;
+    margin: auto;
+    overflow: hidden;
+
+    background-image: linear-gradient(to right, color-mix(in srgb, var(--color-foreground-0) 20%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--color-foreground-0) 20%, transparent) 2px, transparent 1px);
+    background-size: 40px 40px;
+
+    background-position: var(--x, 0px) var(--y, 0px);
+
+    will-change: background-position;
+
+    /* Anti zoom for mobile (double tap zoom) */
+    touch-action: none ;
+  }
+
+  #skill-tree-canvas {
+    padding: absolute;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+  }
+  /* Transform Logic for panning */
+  #skill-tree-canvas {
+    /* Pure CSS positioning controlled by JavaScript logic */
+    transform: translate3d(var(--x, 0px), var(--y, 0px), 0) scale(var(--zoom, 1));
+
+    /* GPU Acceleration */
+    will-change: transform;
+  }
+
+  #page-title-card {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    --title-card-color: color-mix(in srgb, var(--color-foreground-0) 70%, transparent);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--title-card-color);
+    fill: var(--title-card-color);
+  }
+
+  #page-title-card > #node-tree-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+  }
+</style>
+<script>
+  // Panning Implementation for Skill Tree viewport
+  const canvas = document.getElementById('skill-tree-canvas')
+  const viewport = document.getElementById('skill-tree-viewport')
+
+  // Pan State Handling
+  let mouseDragging = false
+  let translateX = 0
+  let translateY = 0
+  let startX = 0
+  let startY = 0
+
+  // Zoom State Handling
+  let zoom = 1
+  const MIN_ZOOM = 0.5
+  const MAX_ZOOM = 4.0
+
+  let touchStartDist = 0 // Measures starting distance between two fingers
+  let touchStartZoom = 1 // Stores zoom factor at the moment of touch down
+  let touchStartMidX = 0 // Stores initial midpoint X between fingers
+  let touchStartMidY = 0 // Stores initial midpoint Y between fingers
+  let isTouchZooming = false
+
+
+  // POINTER PAN HANDLING
+
+  viewport?.addEventListener('pointerdown', (e) => {
+    startX = e.clientX
+    startY = e.clientY
+    mouseDragging = true
+  })
+
+  viewport?.addEventListener('pointermove', (e) => {
+     if (!mouseDragging || isTouchZooming) return;
+
+     // Mobile anti-snap-drag handling
+       if (startX === 0 && startY === 0) return;
+
+    // Dividing by zoom maintains a constant tracking speed regardless of zoom scale
+    let delta_x = e.clientX - startX
+    let delta_y = e.clientY - startY
+
+    setPan(translateX + delta_x, translateY + delta_y)
+  })
+
+  viewport?.addEventListener('pointerup', (e) => {
+
+  //Anti pointer snap-drag on mobile handling
+  if (!mouseDragging || startX === 0 || startY === 0) {
+    mouseDragging = false;
+    return;
+  }
+
+    mouseDragging = false
+    let delta_x = e.clientX - startX
+    let delta_y = e.clientY - startY
+
+    translateX += delta_x
+    translateY += delta_y
+
+    setPan(translateX, translateY)
+  })
+
+  viewport?.addEventListener('pointercancel', () => {
+    mouseDragging = false
+  })
+
+
+
+  // ZOOM HANDLING (TOUCHPAD AND MOUSE)
+  viewport?.addEventListener(
+    'wheel',
+    (e: WheelEvent) => {
+      if (!viewport || !canvas) return
+
+      // Prevent standard layout scrolling inside the component box
+      e.preventDefault()
+
+      // Find where the cursor is relative to the viewport boundaries
+      const rect = viewport.getBoundingClientRect()
+      const mouseX = e.clientX - rect.left
+      const mouseY = e.clientY - rect.top
+
+      // Project the mouse cursor pixels into virtual coordinate space
+      const worldX = (mouseX - translateX) / zoom
+      const worldY = (mouseY - translateY) / zoom
+
+      // Trackpads pinch incredibly quickly compared to mouse wheels
+      const baseSpeed = e.ctrlKey ? 0.03 : 0.08
+      const zoomFactor = e.deltaY < 0 ? 1 + baseSpeed : 1 - baseSpeed
+
+      // Calculate and clamp the new scale value
+      const nextZoom = Math.min(Math.max(zoom * zoomFactor, MIN_ZOOM), MAX_ZOOM)
+
+      // Shift pan tracking coordinates so the exact point beneath the pointer stays pinned
+      translateX = mouseX - worldX * nextZoom
+      translateY = mouseY - worldY * nextZoom
+      zoom = nextZoom
+
+      // Flush the layout updates using your helper function
+      setPan(translateX, translateY)
+    },
+    { passive: false },
+  )
+
+  function setPan(x: number, y: number) {
+    canvas?.style.setProperty('--x', `${x}px`)
+    canvas?.style.setProperty('--y', `${y}px`)
+    canvas?.style.setProperty('--zoom', `${zoom}`)
+
+    viewport?.style.setProperty('--x', `${x}px`)
+    viewport?.style.setProperty('--y', `${y}px`)
+    viewport?.style.setProperty('--zoom', `${zoom}`)
+  }
+
+  // MOBILE PINCH HANDLING
+  viewport?.addEventListener('touchstart', (e: TouchEvent) => {
+  if (e.touches.length === 2 && viewport) {
+    isTouchZooming = true;
+    mouseDragging = false; // Disables your pointer down single-finger panning
+
+    const t1 = e.touches[0];
+    const t2 = e.touches[1];
+
+    // 1. Calculate the initial distance between the two fingers
+    touchStartDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+    touchStartZoom = zoom;
+
+    // 2. Find the initial screen midpoint between the two fingers
+    const rect = viewport.getBoundingClientRect();
+    touchStartMidX = (t1.clientX + t2.clientX) / 2 - rect.left;
+    touchStartMidY = (t1.clientY + t2.clientY) / 2 - rect.top;
+
+    // 3. Save the starting panning state before the shift happens
+    startX = translateX;
+    startY = translateY;
+  }
+}, { passive: true });
+
+viewport?.addEventListener('touchmove', (e: TouchEvent) => {
+  if (!isTouchZooming || e.touches.length !== 2 || !viewport) return;
+  
+  // Prevent mobile browser pull-to-refresh or native page pinch-zoom
+  e.preventDefault(); 
+
+  const t1 = e.touches[0];
+  const t2 = e.touches[1];
+
+  // 1. Calculate the current distance between fingers and the scale factor
+  const currentDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+  if (touchStartDist === 0) return;
+  const factor = currentDist / touchStartDist;
+
+  // 2. Compute and clamp the new target zoom
+  const nextZoom = Math.min(Math.max(touchStartZoom * factor, MIN_ZOOM), MAX_ZOOM);
+
+  // 3. Track the new screen midpoint between fingers
+  const rect = viewport.getBoundingClientRect();
+  const currentMidX = (t1.clientX + t2.clientX) / 2 - rect.left;
+  const currentMidY = (t1.clientY + t2.clientY) / 2 - rect.top;
+
+  // 4. Map the original starting midpoint back into virtual world coordinates
+  const worldX = (touchStartMidX - startX) / touchStartZoom;
+  const worldY = (touchStartMidY - startY) / touchStartZoom;
+
+  // 5. Calculate new panning values so the canvas scales around the midpoint,
+  // and follows the movement of the fingers dragging the canvas.
+  translateX = currentMidX - worldX * nextZoom;
+  translateY = currentMidY - worldY * nextZoom;
+  zoom = nextZoom;
+
+  // Flush mutations
+  setPan(translateX, translateY);
+}, { passive: false });
+
+viewport?.addEventListener('touchend', (e: TouchEvent) => {
+  if (isTouchZooming && e.touches.length < 2) {
+    isTouchZooming = false;
+
+    // Smooth reset: If one finger stays on screen, don't let it suddenly snap-drag
+
+    mouseDragging = false; 
+    // Zero out deltas to prevent move detect.
+    startX = 0;
+    startY = 0;
+  }
+});
+
+viewport?.addEventListener('touchcancel', () => {
+  isTouchZooming = false;
+  mouseDragging = false;
+  startX = 0;
+  startY = 0;
+});
+
+
+
+</script>
