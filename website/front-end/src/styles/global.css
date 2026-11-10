@@ -9,8 +9,23 @@ body {
   background-color: var(--color-global-background);
 }
 
+ html {
+    font-size: 16px;
+    overflow-y: hidden;
+  }
+
+
 @media screen and (min-width: 1024px) {
   html {
     font-size: 18px;
+    overflow-y: hidden;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+    overflow-y: hidden;
   }
 }

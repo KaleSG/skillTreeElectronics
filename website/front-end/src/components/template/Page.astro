@@ -4,7 +4,9 @@ import UniversalMetadata from '../../components/cross-page/UniversalMetadata.ast
 import Navbar from '../../components/cross-page/navbar/Navbar.astro';
 import '../../styles/Navbar.css' /* Colors, styling, animation timing can all be found here. */
 
-const {pageTitle, ...rest} = Astro.props;
+import { ClientRouter } from 'astro:transitions';
+
+const {PageTitle, ...rest} = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -12,9 +14,12 @@ const {pageTitle, ...rest} = Astro.props;
 
     <!-- Basic Page Information -->
     <meta charset="utf-8" />
-    <title>{pageTitle} | skillTree Electronics</title>
+    <title>{PageTitle} | skillTree Electronics</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Smooth Transitioning For SPA Emulation -->
+      <ClientRouter />
+      
     <!-- Pinch-Zoom Prevention on Main SkillTree page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>

@@ -46,9 +46,9 @@ const { ...rest } = Astro.props
     transition: box-shadow var(--navbar-link-time) ease;
   }
 
-   #navbar.active {
+  #navbar.active {
     box-shadow: 0px 1px 3px 1px var(--color-accent-green);
-   }
+  }
   /* Sets uniform hei */
   #navbar > * {
     width: 100%;
@@ -73,36 +73,42 @@ const { ...rest } = Astro.props
   }
 </style>
 <script>
-  // Handles nav-link show events
-  const navlinkToggleButton = document.getElementById('Hamburger')
-  const dropDownLinks = document.getElementById('drop-down-links')
-  const navbar = document.getElementById('navbar')
 
-  function toggleLinks() {
-    dropDownLinks?.classList.toggle('hidden')
-    navlinkToggleButton?.classList.toggle('active')
-    navbar?.classList.toggle('active');
-  }
+  //This is required to reinitialize javascript on page changes due to client router. Client Router allows pages to be smoothly navigated without sudden changes in css/html on shared template pages. This prevents the navbar from getting stuck.
+  document.addEventListener('astro:page-load', () => {
+    // Handles nav-link drop-down functionality
+    const navlinkToggleButton = document.getElementById('Hamburger')
+    const dropDownLinks = document.getElementById('drop-down-links')
+    const navbar = document.getElementById('navbar')
 
-  function linksVisible() {
-    dropDownLinks?.classList.remove('hidden')
-    navlinkToggleButton?.classList.add('active')
-    navbar?.classList.add('active')
-  }
+    function toggleLinks() {
+      dropDownLinks?.classList.toggle('hidden')
+      navlinkToggleButton?.classList.toggle('active')
+      navbar?.classList.toggle('active')
+    }
 
-  function linksHidden() {
-    dropDownLinks?.classList.add('hidden')
-    navlinkToggleButton?.classList.remove('active')
-    navbar?.classList.remove('active')
-  }
+    function linksVisible() {
+      dropDownLinks?.classList.remove('hidden')
+      navlinkToggleButton?.classList.add('active')
+      navbar?.classList.add('active')
+    }
 
-  // Links hidden by default.
-  linksHidden()
+    function linksHidden() {
+      dropDownLinks?.classList.add('hidden')
+      navlinkToggleButton?.classList.remove('active')
+      navbar?.classList.remove('active')
+    }
 
-  navlinkToggleButton?.addEventListener('click', toggleLinks)
+    // Links hidden by default.
+    linksHidden()
 
-  //Show links on top bar hover
-  navbar?.addEventListener('mouseenter', linksVisible)
+    navlinkToggleButton?.addEventListener('click', toggleLinks)
 
-  navbar?.addEventListener('mouseleave', linksHidden)
+    //Show links on top bar hover
+    navbar?.addEventListener('mouseenter', linksVisible)
+
+    navbar?.addEventListener('mouseleave', linksHidden)
+
+    dropDownLinks?.addEventListener('mouseup', linksHidden)
+  })
 </script>

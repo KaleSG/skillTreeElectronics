@@ -2,9 +2,11 @@
 import '../../styles/global.css'
 import Page from './Page.astro';
 import '../../styles/markdown-styling/singleMarkDown.css'
+
+const {PageTitle} = Astro.props
 ---
 
-<Page id="content-container">
+<Page id="content-container" PageTitle={PageTitle}>
   <!-- Wrap in a styled container -->
   <article id="main-conent-column">
      <span id="copyright-notice">© 2026 skillTreeElectronics. All rights reserved.</span>
@@ -27,23 +29,25 @@ import '../../styles/markdown-styling/singleMarkDown.css'
   }
 
   #content-container>#main-conent-column {
-    display: block;
     background-color: var(--color-dark-2);
     width: 100%;
-    border-radius: 1rem;
-    padding: 1rem;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
     margin: 0.5rem;
     overflow: scroll;
+    box-shadow: 0px 0px 1px 1px color-mix(in srgb, var(--color-accent-green) 20%,transparent);
+    z-index:100;
   }
 
-  
-
-  @media screen and (min-width: 1024px) {
+   @media screen and (min-width: 1024px) {
     #content-container>#main-conent-column {
-    padding: 2rem;
-    padding-top: 1.5rem;
+    width: 80%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #content-container>#main-conent-column {
     width: 60%;
-    margin: 1rem;
     }
   }
 
