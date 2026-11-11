@@ -73,9 +73,6 @@ const { ...rest } = Astro.props
   }
 </style>
 <script>
-
-  //This is required to reinitialize javascript on page changes due to client router. Client Router allows pages to be smoothly navigated without sudden changes in css/html on shared template pages. This prevents the navbar from getting stuck.
-  document.addEventListener('astro:page-load', () => {
     // Handles nav-link drop-down functionality
     const navlinkToggleButton = document.getElementById('Hamburger')
     const dropDownLinks = document.getElementById('drop-down-links')
@@ -110,5 +107,4 @@ const { ...rest } = Astro.props
     navbar?.addEventListener('mouseleave', linksHidden)
 
     dropDownLinks?.addEventListener('mouseup', linksHidden)
-  })
 </script>

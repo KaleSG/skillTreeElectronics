@@ -1,0 +1,83 @@
+---
+import '../../styles/global.css'
+const { grid_spacing = '60px', gridline_thickness = '2px' } = Astro.props
+const { ...rest } = Astro.props
+---
+
+<div></div>
+<div id="viewport">
+  <div id="viewport-canvas">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ grid_spacing, gridline_thickness }}>
+  :root {
+    --gridline-color: color-mix(in srgb, var(--color-foreground-5) 50%, transparent);
+  }
+
+  #viewport::before {
+  content: "";
+  position: absolute;
+
+    /* Grid Lines */
+    background-image: linear-gradient(to right, var(--gridline-color) var(--gridline_thickness), transparent var(--gridline_thickness)), linear-gradient(to bottom, var(--gridline-color) var(--gridline_thickness), transparent var(--gridline_thickness));
+
+    background-size: var(--grid_spacing) var(--grid_spacing);
+
+    top: calc(var(--grid_spacing) * -1);
+    left: calc(var(--grid_spacing) * -1);
+    right: calc(var(--grid_spacing) * -1);
+    bottom: calc(var(--grid_spacing) * -1);
+
+    /* Translation using hardware acceleration */
+    transform: translate3d(var(--x),var(--y),0);
+  
+  }
+
+  #viewport {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-dark-3);
+
+    /* hardware acceleration optimizations */
+    will-change: transform;
+    transform-origin: 0px 0px;
+
+
+    /* Prevent phone default touch action */
+    touch-action: none;
+  }
+
+  #viewport::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows user to right-click/interact with image underneath */
+
+    /* Adjust the last value (0.7) to control the opacity/darkness */
+    box-shadow: inset 0 0 15px 1px color-mix(in srgb, var(--color-accent-green) 20%, transparent);
+  }
+
+  #viewport-canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+
+    /* translation/scaling */
+    transform: translate3d(var(--x),var(--y),0);
+
+    /* Prevent phone default touch action */
+    touch-action: none;
+  }
+</style>
+<script>
+ import './CanvasViewport.ts';
+</script>
