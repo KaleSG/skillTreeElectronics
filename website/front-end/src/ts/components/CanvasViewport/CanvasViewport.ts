@@ -1,8 +1,7 @@
 // CanvasViewport.js
 
-import { Vector } from '../../util/Vector.ts'
-import './grid-handler.ts'
-import { updateGridPosition } from './grid-handler.ts'
+import { Vector } from '@ts/util/Vector.ts'
+import { updateGridPosition } from '@ts/components/CanvasViewport/grid-handler.ts'
 
 const viewport = document.getElementById('viewport') as HTMLElement
 const canvas = document.getElementById('viewport-canvas') as HTMLElement

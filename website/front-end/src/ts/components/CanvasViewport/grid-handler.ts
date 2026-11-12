@@ -1,4 +1,4 @@
-import { Vector } from '../../util/Vector.ts'
+import { Vector } from '@ts/util/Vector.ts'
 
 const viewportGrid = document.getElementById('viewport') as HTMLElement
 
