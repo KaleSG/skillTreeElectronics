@@ -1,0 +1,30 @@
+/* surface.css */
+/* This files defines all default surface colors and layout + background color defaults */
+
+body {
+  background-color: var(--color-page-base);
+  color: var(--color-page-base-fg);
+}
+
+ .surface, body div {
+  background-color: var(--color-surface-0);
+  color: var(--color-surface-fg-0);
+  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+}
+
+.surface .surface{
+  background-color: var(--color-surface-1);
+  color: var(--color-surface-fg-1);
+}
+
+.surface .surface .surface{
+  background-color: var(--color-surface-2);
+  color: var(--color-surface-fg-2);
+}
+
+.surface .surface .surface .surface {
+  background-color: var(--color-surface-3);
+  color: var(--color-surface-fg-3);
+}

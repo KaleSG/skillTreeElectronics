@@ -1,0 +1,43 @@
+/* ./src/style/colors.css */
+
+:root {
+    /* bg + surface themeing */
+
+    --color-page-base: #070d03;
+    --color-surface-0:#0b0f07;
+    --color-surface-1: #0e120b;
+    --color-suface-2: #11140e;
+    --color-surface-3: #131711;
+
+    /* font themeing */
+    --color-page-base-fg: #e8ece5;
+    --color-surface-fg-0:#ebefe8;
+    --color-surface-fg-1: #eef2eb;
+    --color-suface-fg-2: #f1f4ee;
+    --color-surface-fg-3: #f3f8f1;
+    
+
+    --color-fg-base-accented: #cbf5b5; /* LCH: 92.49 34.7 130.4 */
+    --color-fg-muted-0-accented: #b1d898;
+    --color-fg-muted-1-accented: #97bc7e;
+
+    /* Indicators / Highlight Colors */
+    --color-indicator-green: #cbf5b5;
+    --color-indicator-red: #f2a091;
+    --color-indicator-yellow: #ffe6a6;
+    --color-indicator-blue: #9de5f5;
+    --color-indicator-purple: #c6cef9;
+    --color-indicator-pink: #edc3e5;
+
+
+    
+
+}
+
+/* Color Pallete Credit/Acknoledgement:
+
+The following website was used to pick and generate colors for skillTreeElectronics: 
+
+* https://lch.oklch.com
+
+*/

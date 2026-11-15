@@ -1,0 +1,25 @@
+---
+const { PageTitle, PageDescription, ...rest } = Astro.props;
+import "@style/global.css";
+import Navigator from "@components/ui/Navigator/Navigator.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Non-Interactive Metadata -->
+    <meta name="robots" content="noindex,nofollow" />
+
+    <!-- Page Configurations -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <!-- Page Info -->
+    <title>{PageTitle} | skillTreeElectronics</title>
+    <meta name="description" content={PageDescription} />
+  </head>
+  <body>
+    <Navigator />
+    <slot />
+  </body>
+</html>
