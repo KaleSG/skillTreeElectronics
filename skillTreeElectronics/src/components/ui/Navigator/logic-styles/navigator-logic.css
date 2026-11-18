@@ -1,10 +1,10 @@
 :root {
   --item-padding: 0.5rem;
-  --nav-height: 2.5rem;
+  --nav-height-logic: 2.5rem;
 }
 
 #navlinks {
-  max-height: calc(2*var(--nav-height));
+  max-height: calc(2*var(--nav-height-logic));
   transition: max-height 200ms ease-in;
   
 }

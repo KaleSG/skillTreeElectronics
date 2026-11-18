@@ -2,7 +2,7 @@
   background-color: var(--color-surface-1);
   color: var(--color-page-base-fg);
   fill: var(--color-page-base-fg);
-  box-shadow: 0px 0px 5px 3px var(--color-fg-base-accented);
+  box-shadow: 0px 0px 5px 1px var(--color-fg-base-accented);
 }
 
 #navigator {

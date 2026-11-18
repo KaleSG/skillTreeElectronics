@@ -12,6 +12,7 @@ import Navigator from "@components/ui/Navigator/Navigator.astro";
 
     <!-- Page Configurations -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta charset="utf-8" />
 
     <!-- Page Info -->
@@ -20,8 +21,22 @@ import Navigator from "@components/ui/Navigator/Navigator.astro";
   </head>
   <body>
     <Navigator />
+
     <main>
       <slot />
     </main>
   </body>
 </html>
+<style>
+  body {
+    height: 100vh;
+  }
+  main {
+    width: 100vw;
+    padding-top: 2.8rem;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    overflow: hidden;
+  }
+</style>

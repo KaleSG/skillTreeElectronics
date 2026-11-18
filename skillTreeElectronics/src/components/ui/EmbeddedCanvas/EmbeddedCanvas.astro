@@ -1,0 +1,68 @@
+---
+const { ...rest } = Astro.props;
+import "@style/global.css";
+---
+
+<div class="canvas" data-canvas {...rest}>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="world">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .canvas {
+    --grid-size: 40px;
+    --grid-color: var(--color-surface-3);
+    --line-thickness: 2px;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    contain: layout paint style;
+
+    touch-action: none; /* stop browser scroll/zoom from stealing touch drags */
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+  }
+
+  .canvas[data-dragging] {
+    cursor: grabbing;
+  }
+
+  /* Oversized by one tile on every side so it can be shifted by
+     (pan mod grid-size) and always cover the viewport. The pattern is
+     painted once and only ever moved via transform (GPU compositor). */
+  .grid {
+    position: absolute;
+    inset: calc(var(--grid-size) * -1);
+    pointer-events: none;
+    will-change: transform;
+    background-image:
+      linear-gradient(
+        to right,
+        var(--grid-color) var(--line-thickness),
+        transparent var(--line-thickness)
+      ),
+      linear-gradient(
+        to bottom,
+        var(--grid-color) var(--line-thickness),
+        transparent var(--line-thickness)
+      );
+    background-size: var(--grid-size) var(--grid-size);
+  }
+
+  .world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+  }
+</style>
+
+<script>
+  import "@components/ui/EmbeddedCanvas/ts/panning.ts";
+</script>
