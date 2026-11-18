@@ -1,0 +1,22 @@
+:root {
+  --item-padding: 0.5rem;
+  --nav-height: 2.5rem;
+}
+
+#navlinks {
+  max-height: calc(2*var(--nav-height));
+  transition: max-height 200ms ease-in;
+  
+}
+#navlinks.hidden {
+  max-height: 0rem;
+
+  
+}
+
+#darkener {
+  transition: opacity 100ms ease-out;
+}
+#darkener.hidden {
+  opacity: 0%;
+}

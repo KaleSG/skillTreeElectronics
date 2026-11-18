@@ -1,23 +1,31 @@
 ---
 import "@style/global.css";
 import "@style/components/ui/Navigator/navigator.css";
+import "@components/ui/Navigator/logic-styles/navigator-logic.css";
 import { icons } from "@astro-icons/icons.astro";
 ---
 
-<div id="navigator">
-  <div id="navbar">
-    <div id="navbar-left">
-      <icons.logo id="leaf-logo" class="icon" />
-      <span>skillTreeElectronics</span>
+<div>
+  <div id="navigator">
+    <div id="navbar">
+      <div id="navbar-left">
+        <icons.logo id="leaf-logo" class="icon" />
+        <span>skillTreeElectronics</span>
+      </div>
+
+      <div id="navbar-right">
+        <icons.dropdown id="dropdown" class="icon" />
+      </div>
     </div>
 
-    <div id="navbar-right">
-      <icons.dropdown id="dropdown" class="icon" />
+    <div id="navlinks">
+      <a class="navlink">Skill Tree</a>
+      <a class="navlink">About</a>
     </div>
   </div>
 
-  <div id="navlinks">
-    <a class="navlink">Skill Tree</a>
-    <a class="navlink">About</a>
-  </div>
+  <div id="darkener"></div>
 </div>
+<script>
+  import "@components/ui/Navigator/ts/navigator.ts";
+</script>

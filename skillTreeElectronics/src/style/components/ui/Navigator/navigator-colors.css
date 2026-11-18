@@ -5,30 +5,48 @@
   box-shadow: 0px 0px 5px 3px var(--color-fg-base-accented);
 }
 
-#navigator,
+#navigator {
+  transition: all 200ms ease-in-out;
+}
+
 #navigator * {
   transition: background-color 200ms ease-in-out;
 }
 
-#navigator:hover {
-  cursor: pointer;
+#dropdown {
+  transition: all 400ms ease-out;
+}
+
+#navigator:active {
+  background-color: var(--color-surface-3);
+  transition: all 50ms ease;
+}
+
+#navbar {
+  color: var(--color-page-base-fg);
+  fill: var(--color-page-base-fg);
+  transition: all 500ms ease-out;
+}
+
+#navbar:active {
+  color: var(--color-fg-base-accented);
+  fill: var(--color-fg-base-accented);
+  transition: all 100ms ease;
+}
+
+#navbar:active #dropdown {
+  transform: scale(0.8);
+  fill: var(--color-fg-muted-1-accented);
+  transition: all 100ms ease;
 }
 
 #navlinks {
   background-color: var(--color-surface-2);
   overflow: hidden;
-  max-height: 0rem;
   position: absolute;
   width: 100vw;
   top: var(--nav-height);
-
-  transition: max-height 3s ease-out;
   border-bottom: 2px solid var(--color-fg-muted-1-accented);
-}
-
-#navigator:hover #navlinks {
-  max-height: 300rem;
-  transition: max-height 2s ease-in;
 }
 
 #navlinks > .navlink:hover {
@@ -38,4 +56,5 @@
 
 #navlinks > .navlink:active {
   background-color: var(--color-surface-2);
+  color: var(--color-fg-muted-1-accented);
 }
