@@ -9,7 +9,8 @@
       "@components/*": ["./src/components/*"],
       "@ts/*": ["./src/ts/*"],
       "@assets/*": ["./public/assets/*"],
-      "@astro-icons/*": ["./public/assets/astro-svg/*"]
+      "@astro-icons/*": ["./public/assets/astro-svg/*"],
+      "@content/*": ["./src/learning-content/*"]
     }
   }
 }
