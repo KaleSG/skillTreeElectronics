@@ -7,7 +7,9 @@
       "@/*": ["./src/*"],
       "@style/*": ["./src/style/*"],
       "@components/*": ["./src/components/*"],
-      "@ts/*": ["./src/ts/*"]
+      "@ts/*": ["./src/ts/*"],
+      "@assets/*": ["./public/assets/*"],
+      "@astro-icons/*": ["./public/assets/astro-svg/*"]
     }
   }
 }

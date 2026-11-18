@@ -1,7 +1,81 @@
-div {
-    margin: 0;
-    
+@import "./navigator-colors.css";
+
+:root {
+  --item-padding: 0.5rem;
+  --nav-height: 2.5rem;
 }
+
 #navigator {
-    color: red;
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: fit-content;
+
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 1000;
+}
+
+#navbar {
+  width: 100%;
+  height: var(--nav-height);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+#navbar > #navbar-left {
+  display: flex;
+  flex-direction: row;
+  justify-items: left;
+  align-items: center;
+
+  gap: 0.5rem;
+  width: fit-content;
+  height: var(--nav-height);
+}
+
+#navbar-left > #leaf-logo {
+  width: fit-content;
+  height: 1.7rem;
+  padding-left: var(--item-padding);
+
+}
+
+#navbar-left > span {
+  width: fit-content;
+  align-content: center;
+  height: 100%;
+}
+#navbar > #navbar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: var(--nav-height);
+  flex-grow: 1;
+  justify-content: right;
+}
+
+#dropdown {
+  width: fit-content;
+  height: calc(var(--nav-height) * 0.6);
+  padding: calc(var(--nav-height) * 0.2);
+}
+
+
+#navlinks {
+display: flex;
+flex-direction: column;
+
+}
+
+#navlinks > .navlink {
+  height: var(--nav-height);
+   padding-left: var(--item-padding);
+   align-content: center;
+   
 }

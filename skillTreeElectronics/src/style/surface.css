@@ -6,7 +6,7 @@ body {
   color: var(--color-page-base-fg);
 }
 
- .surface, body div {
+ .surface, .surface-0 {
   background-color: var(--color-surface-0);
   color: var(--color-surface-fg-0);
   padding: 1rem;
@@ -14,17 +14,17 @@ body {
   height: fit-content;
 }
 
-.surface .surface{
+.surface .surface, .surface-1 {
   background-color: var(--color-surface-1);
   color: var(--color-surface-fg-1);
 }
 
-.surface .surface .surface{
+.surface .surface .surface, .surface-2 {
   background-color: var(--color-surface-2);
   color: var(--color-surface-fg-2);
 }
 
-.surface .surface .surface .surface {
+.surface .surface .surface .surface, .surface-3  {
   background-color: var(--color-surface-3);
   color: var(--color-surface-fg-3);
 }
